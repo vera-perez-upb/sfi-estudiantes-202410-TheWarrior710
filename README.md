@@ -42,3 +42,15 @@
 
 ##### Sitio oficial del Raspberry Pi Pico: Esta página proporciona una visión general del Raspberry Pi Pico, un microcontrolador pequeño y potente basado en el chip RP2040 diseñado por Raspberry Pi. Incluye especificaciones técnicas, características clave, y guías de inicio para ayudar a los usuarios a comenzar a desarrollar proyectos con este dispositivo. Es un recurso esencial para quienes desean explorar el hardware de Raspberry Pi con aplicaciones en proyectos electrónicos y de IoT.
 
+## EJercicio 6: 
+
+### Programa la siguiente aplicación en el raspberry y analiza su funcionamiento. Para descubrir lo que hace debes dar click en el ícono que queda en la esquina superior derecha (Monitor Serie). Los números que vez allí son enviados desde el microcontrolador al computador por medio del puerto USB.
+
+### ¿Cómo se ejecuta este programa?
+### Pudiste ver este mensaje: Serial.print("Task1States::WAIT_TIMEOUT\n");. ¿Por qué crees que ocurre esto?
+### ¿Cuántas veces se ejecuta el código en el case Task1States::INIT?
+
+
+#### Informe:
+##### el código inicializa la comunicación serial, luego imprime el tiempo en intervalos de 1000 ms en el bucle principal. La impresión ocurre cada vez que el tiempo actual supera el intervalo definido desde la última impresión.
+
