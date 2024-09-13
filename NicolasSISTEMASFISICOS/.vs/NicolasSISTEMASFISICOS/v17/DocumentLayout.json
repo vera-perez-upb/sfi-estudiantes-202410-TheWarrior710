@@ -1,0 +1,60 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\nicol\\NicolasSISTEMASFISICOS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F210C4C1-A234-A256-2E49-0281B6DBBCE8}|Assembly-CSharp.csproj|C:\\Users\\nicol\\NicolasSISTEMASFISICOS\\assets\\objeto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F210C4C1-A234-A256-2E49-0281B6DBBCE8}|Assembly-CSharp.csproj|solutionrelative:assets\\objeto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nicol\\NicolasSISTEMASFISICOS\\Assets\\Ejercicio_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Ejercicio_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{93c5e7ad-af06-49e6-a756-b8f3eaca790d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Ejercicio_1.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\NicolasSISTEMASFISICOS\\Assets\\Ejercicio_1.cs",
+              "RelativeDocumentMoniker": "Assets\\Ejercicio_1.cs",
+              "ToolTip": "C:\\Users\\nicol\\NicolasSISTEMASFISICOS\\Assets\\Ejercicio_1.cs",
+              "RelativeToolTip": "Assets\\Ejercicio_1.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T04:34:08.461Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Objeto.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\NicolasSISTEMASFISICOS\\Assets\\Objeto.cs",
+              "RelativeDocumentMoniker": "Assets\\Objeto.cs",
+              "ToolTip": "C:\\Users\\nicol\\NicolasSISTEMASFISICOS\\Assets\\Objeto.cs",
+              "RelativeToolTip": "Assets\\Objeto.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAAgwA0AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T03:12:55.667Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
