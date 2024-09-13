@@ -3,7 +3,7 @@
 ## EJercicio 3
 
 ### Coloca el nombre del equipo, el nombre de los integrantes y el ID. Coloca en el archivo el resultado del cambio de 100 a 500. Describe lo que viste.
-#### SAYANS Blue,NOMBRES: Nicolas Sedano, Jesus Bonivento, ID: 522547,511106
+#### SAYANS BLUE,NOMBRES: Nicolas Sedano, Jesus Bonivento, ID: 522547,511106
 
 #### Informe:
 
