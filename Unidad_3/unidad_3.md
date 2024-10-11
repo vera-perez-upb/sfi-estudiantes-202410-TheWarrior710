@@ -42,47 +42,78 @@
 
 ##### Terminator: Marca el final del mensaje para que el receptor sepa que ha recibido todo el mensaje completo. 
 
-## EJercicio 4: 
-
-### Recuerda que cada ejercicio lo trabajas en la carpeta que lleva su nombre dentro de tu repositorio de trabajo, en el enlace que hay al principio de esta página. Solo debes adicionar un archivo README.md con el nombre del equipo, integrantes y ID y un enlace a un repositorio `PÚBLICO` donde harás lo siguiente:
-
-### - Crea un proyecto para el raspberry pi.
-### - En el código modifica el 500 por 1000.
-### - Coloca el proyecto bajo control de versión.
-### - Sincroniza tu repositorio local con un repositorio público en Github. El enlace a este repositorio será el que coloques en el archivo README.md de la evaluación.
-
-#### Informe:
-
-##### Al cambiar el 500 por un 1000 en el codigo estando dentro de la aplicacion de arduino se puede apreciar que el led verde  ahora ya no parpadea cada 2 segundos como se apreciaba anteriormente si no ahora titilea cada 3 segundos pausadamente.
-
-## EJercicio 5: 
-
-### Para programar el raspberry pi pico tienes mucha documentación con información. Algunos sitios que pueden serte de utilidad son:
-
-### - [API de arduino](https://www.arduino.cc/).
-### - [Port para raspberry pi pico del API de arduino](https://arduino-pico.readthedocs.io/en/latest/#).
-### - [Sitio oficial del raspberry pi pico](https://www.raspberrypi.com/products/raspberry-pi-pico/).
-
-### En el archivo README.md de este ejercicio realiza por favor con tus palabras, preferiblemente a mano, un resumen de los elementos más importantes que identificaste en esta documentación. No olvides enviarla al repositorio remoto.
+## Ejercicio 2: 
 
 
-#### Informe:
+#### La función Serial.readBytesUntil() se ha excluido porque, como mencionas, en un protocolo binario típicamente no existe un carácter delimitador explícito que indique el fin del mensaje (como el \n en un protocolo basado en ASCII). 
+#### En los protocolos binarios, los mensajes suelen tener una longitud fija o incluyen un campo especial en la estructura del mensaje (como un byte de longitud o un campo de checksum) que indica cuándo el mensaje ha terminado.
 
-##### Documentación del API de Arduino: La API de Arduino está diseñada para ayudar a los desarrolladores a crear, desplegar y monitorear proyectos de IoT (Internet de las Cosas) utilizando el ecosistema Arduino. La documentación incluye cómo interactuar con las placas Arduino, gestionar recursos en la nube y controlar dispositivos a través de Arduino IoT Cloud. Ofrece métodos para la gestión de dispositivos, registro de datos y creación de integraciones personalizadas, lo que la convierte en una herramienta versátil tanto para principiantes como para desarrolladores experimentados​ (Arduino Docs)​ (Arduino Docs).
+#### Esto significa que no hay un carácter de fin de línea (\n) o similar que se pueda usar como criterio para detener la lectura. Por lo tanto, la función Serial.readBytesUntil(), que espera hasta recibir un carácter específico para detener la lectura, no es adecuada para este tipo de protocolo.
 
-##### Port oficial de Arduino para Raspberry Pi Pico: Esta es la adaptación oficial del núcleo de Arduino para la Raspberry Pi Pico, permitiendo programar este microcontrolador utilizando el entorno de desarrollo Arduino IDE. La documentación proporciona información detallada sobre cómo configurar el entorno, cargar programas y utilizar las bibliotecas compatibles con el Pico, facilitando así el uso de este hardware con la amplia gama de herramientas y recursos de Arduino.
-
-##### Sitio oficial del Raspberry Pi Pico: Esta página proporciona una visión general del Raspberry Pi Pico, un microcontrolador pequeño y potente basado en el chip RP2040 diseñado por Raspberry Pi. Incluye especificaciones técnicas, características clave, y guías de inicio para ayudar a los usuarios a comenzar a desarrollar proyectos con este dispositivo. Es un recurso esencial para quienes desean explorar el hardware de Raspberry Pi con aplicaciones en proyectos electrónicos y de IoT.
-
-## EJercicio 6: 
-
-### Programa la siguiente aplicación en el raspberry y analiza su funcionamiento. Para descubrir lo que hace debes dar click en el ícono que queda en la esquina superior derecha (Monitor Serie). Los números que vez allí son enviados desde el microcontrolador al computador por medio del puerto USB.
-
-### ¿Cómo se ejecuta este programa?
-### Pudiste ver este mensaje: Serial.print("Task1States::WAIT_TIMEOUT\n");. ¿Por qué crees que ocurre esto?
-### ¿Cuántas veces se ejecuta el código en el case Task1States::INIT?
+## Ejercicio 3:
 
 
-#### Informe:
-##### el código inicializa la comunicación serial, luego imprime el tiempo en intervalos de 1000 ms en el bucle principal. La impresión ocurre cada vez que el tiempo actual supera el intervalo definido desde la última impresión.
+#### El concepto de endian se refiere al orden en el que los bytes de una variable multibyte (por ejemplo, un entero o un número en punto flotante) se almacenan o se transmiten. Dependiendo del sistema, existen dos formas principales de organizar estos bytes: little endian y big endian.
 
+#### 1. Little Endian:
+#### En el formato little endian, el byte de menor peso (el byte menos significativo) se almacena o se transmite primero. Es decir, los bytes se organizan en orden inverso, desde el más pequeño al más grande.
+
+#### Ejemplo: Supongamos que tienes el número hexadecimal 0x12345678. En formato little endian, los bytes se almacenarían de la siguiente forma:
+
+```
+Byte 1: 0x78 (menor peso)
+Byte 2: 0x56
+Byte 3: 0x34
+Byte 4: 0x12 (mayor peso)
+```
+
+#### 2. Big Endian:
+#### En el formato big endian, el byte de mayor peso (el byte más significativo) se almacena o se transmite primero. Los bytes se organizan en el orden "natural" desde el más grande al más pequeño.
+
+#### Ejemplo: Utilizando el mismo número 0x12345678, en formato big endian, los bytes se almacenarían de la siguiente forma:
+```
+Byte 1: 0x12 (mayor peso)
+Byte 2: 0x34
+Byte 3: 0x56
+Byte 4: 0x78 (menor peso)
+```
+
+#### Ejercicio 4
+
+#### En qué endian estamos transmitiendo el número?
+#### En el código original, estás transmitiendo el número en little endian. Esto se debe a que la mayoría de los microcontroladores basados en arquitecturas como ARM (utilizados en placas Arduino) almacenan los datos en memoria en formato little endian de forma predeterminada.
+
+#### En little endian, el byte menos significativo (LSB) se transmite primero, y el byte más significativo (MSB) se transmite al final. Es decir, los bytes del número en punto flotante 3589.3645 (45 60 55 D5) se envían en el siguiente orden:
+```
+D5 55 60 45
+```
+
+#### ¿Cómo transmitir en el endian contrario (big endian)?
+#### Para transmitir el número en big endian, debes enviar primero el byte más significativo (MSB) y luego el menos significativo (LSB). En este caso, simplemente inviertes el orden de los bytes antes de transmitirlos. Ya has dado una solución para esto con el siguiente código:
+```
+void setup() {
+    Serial.begin(115200);
+}
+
+void loop() {
+    // 45 60 55 d5 // https://www.h-schmidt.net/FloatConverter/IEEE754.html
+    static float num = 3589.3645;
+    static uint8_t arr[4] = {0};
+
+    if (Serial.available()) {
+        if (Serial.read() == 's') {
+            memcpy(arr, (uint8_t *)&num, 4);
+
+            // Transmitir en orden inverso (big endian)
+            for (int8_t i = 3; i >= 0; i--) {
+                Serial.write(arr[i]);
+            }
+        }
+    }
+}
+```
+
+#### Diferencia en la transmisión:
+#### Little Endian: Los bytes se envían en el orden D5 55 60 45.
+#### Big Endian: Los bytes se envían en el orden 45 60 55 D5.
+#### Al invertir el orden de los bytes, estás asegurando que el receptor pueda interpretar los datos en el formato adecuado, dependiendo de si espera little endian o big endian.
