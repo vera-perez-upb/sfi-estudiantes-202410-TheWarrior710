@@ -119,3 +119,46 @@ void loop() {
 #### Little Endian: Los bytes se envían en el orden D5 55 60 45.
 #### Big Endian: Los bytes se envían en el orden 45 60 55 D5.
 #### Al invertir el orden de los bytes, estás asegurando que el receptor pueda interpretar los datos en el formato adecuado, dependiendo de si espera little endian o big endian.
+
+### Ejercicio 5
+
+#### Este código nos permite enviar dos números en ambos formatos endian y un tercer número adicional en little endian.
+
+``` cpp
+void setup() {
+    Serial.begin(115200);
+}
+
+void loop() {
+    // Definir tres números en punto flotante
+    static float num1 = 3589.3645;
+    static float num2 = 1234.5678;
+    static float num3 = 8765.4321;
+
+    // Crear buffers para almacenar los bytes de cada número
+    static uint8_t arr1[4] = {0};
+    static uint8_t arr2[4] = {0};
+    static uint8_t arr3[4] = {0};
+
+    if (Serial.available()) {
+        // Leer un carácter del puerto serial
+        if (Serial.read() == 's') {
+            // Copiar los números a sus respectivos buffers en formato IEEE 754
+            memcpy(arr1, (uint8_t *)&num1, 4);
+            memcpy(arr2, (uint8_t *)&num2, 4);
+            memcpy(arr3, (uint8_t *)&num3, 4);
+
+            // Enviar num1 en formato little endian (por defecto)
+            Serial.write(arr1, 4);
+            
+            // Enviar num2 en formato big endian
+            for (int8_t i = 3; i >= 0; i--) {
+                Serial.write(arr2[i]);
+            }
+
+            // Enviar num3 en formato little endian (por defecto)
+            Serial.write(arr3, 4);
+        }
+    }
+}
+```
