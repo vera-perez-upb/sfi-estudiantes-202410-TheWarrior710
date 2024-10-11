@@ -60,7 +60,7 @@
 
 #### Ejemplo: Supongamos que tienes el número hexadecimal 0x12345678. En formato little endian, los bytes se almacenarían de la siguiente forma:
 
-```
+``` h
 Byte 1: 0x78 (menor peso)
 Byte 2: 0x56
 Byte 3: 0x34
@@ -71,7 +71,7 @@ Byte 4: 0x12 (mayor peso)
 #### En el formato big endian, el byte de mayor peso (el byte más significativo) se almacena o se transmite primero. Los bytes se organizan en el orden "natural" desde el más grande al más pequeño.
 
 #### Ejemplo: Utilizando el mismo número 0x12345678, en formato big endian, los bytes se almacenarían de la siguiente forma:
-```
+``` h
 Byte 1: 0x12 (mayor peso)
 Byte 2: 0x34
 Byte 3: 0x56
