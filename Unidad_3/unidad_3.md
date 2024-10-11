@@ -90,7 +90,9 @@ D5 55 60 45
 
 #### ¿Cómo transmitir en el endian contrario (big endian)?
 #### Para transmitir el número en big endian, debes enviar primero el byte más significativo (MSB) y luego el menos significativo (LSB). En este caso, simplemente inviertes el orden de los bytes antes de transmitirlos. Ya has dado una solución para esto con el siguiente código:
-```
+```cpp
+#include <Arduino.h>
+
 void setup() {
     Serial.begin(115200);
 }
